@@ -1,4 +1,4 @@
-package mtgcard
+package api
 
 import (
 	"log"

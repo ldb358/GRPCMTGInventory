@@ -2,3 +2,4 @@
 data/*.json 
 Keyrune-master/**
 .vscode
+bin
