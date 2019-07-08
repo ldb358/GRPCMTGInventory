@@ -1,3 +1,4 @@
 # Only store zip files(json is huuuuuuge)
 data/*.json 
 Keyrune-master/**
+.vscode
