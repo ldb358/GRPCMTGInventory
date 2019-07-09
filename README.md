@@ -20,10 +20,12 @@ The next steps(I think):
 2. ~~Build client~~
 3. ~~Add ssl~~
 4. Add rest
-5. Build basic frontend
-6. Add JWT token
-7. Build out backend with full model implementation, add sql backend of some sort
-8. Add features to UI and go from there
+5. Build out basic inventory + card data protobuf
+6. Update the api to reflect the full format
+7. Build basic frontend
+8. Add JWT token
+9. Build out backend with full model implementation, add sql backend of some sort
+10. Add features to UI and go from there
 
 ## Usage:
 

@@ -36,14 +36,12 @@ service MTGCardService {
   }
   rpc DeleteMTGCard(deleteMTGCardParams) returns (deleteResponse) {
     option (google.api.http) = {
-      delete: "/v1/inventory"
-      body: "*"
+      delete: "/v1/inventory/{name}"
     };
   }
   rpc GetMTGCard(getMTGCardParams) returns (MTGCardResponse) {
     option (google.api.http) = {
       get: "/v1/inventory"
-      body: "*"
     };
   }
 }

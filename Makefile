@@ -11,13 +11,23 @@ deps:
 	go get -u github.com/golang/protobuf/protoc-gen-go
 
 # If this fails add $GOPATH/bin to path
-api: api/handler.go api/mtgcard.proto
+api/api.pb.go: api/mtgcard.proto
 	protoc -I api/ \
 		-I${GOPATH}/src \
 		-I/usr/local/include \
 		-I${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/ \
 		--go_out=plugins=grpc:api \
 		api/mtgcard.proto 
+
+api/api.pb.gw.go: api/mtgcard.proto
+	protoc -I api/ \
+		-I${GOPATH}/src \
+		-I/usr/local/include \
+		-I${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/ \
+		--grpc-gateway_out=logtostderr=true:api \
+		api/mtgcard.proto 
+
+api: api/api.pb.go api/api.pb.gw.go
 
 server: api
 	mkdir -p bin
