@@ -4,9 +4,47 @@ import (
   "fmt"
   "log"
   "net"
+  "strings"
+
+  "golang.org/x/net/context"
+
   "github.com/ldb358/GRPCMTGInventory/api"
   "google.golang.org/grpc"
+  "google.golang.org/grpc/credentials"
+  "google.golang.org/grpc/metadata"
 )
+
+// private type for Context keys
+type contextKey int
+const (
+  clientIDKey contextKey = iota
+)
+// authenticateAgent check the client credentials
+func authenticateClient(ctx context.Context, s *api.Server) (string, error) {
+  if md, ok := metadata.FromIncomingContext(ctx); ok {
+    clientToken := strings.Join(md["token"], "")
+    if clientToken != "098f6bcd4621d373cade4e832627b4f6" {
+      return "", fmt.Errorf("unknown user %s", clientToken)
+    }
+    log.Printf("authenticated client: %s", clientToken)
+    return "42", nil
+  }
+  return "", fmt.Errorf("missing credentials")
+}
+// unaryInterceptor calls authenticateClient with current context
+func unaryInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) {
+  s, ok := info.Server.(*api.Server)
+  if !ok {
+    return nil, fmt.Errorf("unable to cast server")
+  }
+  clientID, err := authenticateClient(ctx, s)
+  if err != nil {
+    return nil, err
+  }
+  ctx = context.WithValue(ctx, clientIDKey, clientID)
+  return handler(ctx, req)
+}
+
 // main start a gRPC server and waits for connection
 func main() {
   // create a listener on TCP port 7777
@@ -16,8 +54,19 @@ func main() {
   }
   // create a server instance
   s := api.Server{}
+
+  // Create the TLS credentials
+  creds, err := credentials.NewServerTLSFromFile("cert/server.crt", "cert/server.key")
+  if err != nil {
+    log.Fatalf("could not load TLS keys: %s", err)
+  }
+  // Create an array of gRPC options with the credentials
+  opts := []grpc.ServerOption{grpc.Creds(creds),
+    grpc.UnaryInterceptor(unaryInterceptor)}
+
+
   // create a gRPC server object
-  grpcServer := grpc.NewServer()
+  grpcServer := grpc.NewServer(opts...)
   // attach the Ping service to the server
   api.RegisterMTGCardServiceServer(grpcServer, &s)
   // start the server

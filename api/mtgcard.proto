@@ -1,5 +1,6 @@
 syntax = "proto3";
 package api;
+import "google/api/annotations.proto";
 
 message getMTGCardParams{}
 
@@ -27,7 +28,22 @@ message deleteResponse {
 }  
 
 service MTGCardService {
-  rpc AddMTGCard(addMTGCardParams) returns (MTGCardResponse) {}
-  rpc DeleteMTGCard(deleteMTGCardParams) returns (deleteResponse) {}
-  rpc GetMTGCard(getMTGCardParams) returns (MTGCardResponse) {}
+  rpc AddMTGCard(addMTGCardParams) returns (MTGCardResponse) {
+    option (google.api.http) = {
+      post: "/v1/inventory"
+      body: "*"
+    };
+  }
+  rpc DeleteMTGCard(deleteMTGCardParams) returns (deleteResponse) {
+    option (google.api.http) = {
+      delete: "/v1/inventory"
+      body: "*"
+    };
+  }
+  rpc GetMTGCard(getMTGCardParams) returns (MTGCardResponse) {
+    option (google.api.http) = {
+      get: "/v1/inventory"
+      body: "*"
+    };
+  }
 }

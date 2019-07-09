@@ -16,10 +16,30 @@ Backend: Golang + grpc (no database)
 Frontend: Vue.js (not started, need research to connect the two)
 
 The next steps(I think):
-1. Finishing setting up grpc
-2. Build clients
-3. Add ssl
+1. -Finishing setting up grpc-
+2. -Build client-
+3. -Add ssl-
 4. Add rest
 5. Build basic frontend
-6. Build out backend with full model implementation, add sql backend of some sort
-7. Add features to UI and go from there
+6. Add JWT token
+7. Build out backend with full model implementation, add sql backend of some sort
+8. Add features to UI and go from there
+
+## Usage:
+
+To build the client, server, and certificates you can just run:
+
+```
+make all
+make certs
+```
+
+From there you can just run:
+
+`./bin/server`
+
+to start the server. The client can be run with:
+
+`./bin/client`
+
+And that is it for now!
