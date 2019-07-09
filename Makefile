@@ -27,7 +27,15 @@ api/api.pb.gw.go: api/mtgcard.proto
 		--grpc-gateway_out=logtostderr=true:api \
 		api/mtgcard.proto 
 
-api: api/api.pb.go api/api.pb.gw.go
+api/api.swagger.json: api/mtgcard.proto
+	protoc -I api/ \
+		-I${GOPATH}/src \
+		-I/usr/local/include \
+		-I${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis/ \
+		--swagger_out=logtostderr=true:api \
+		api/mtgcard.proto
+
+api: api/api.pb.go api/api.pb.gw.go api/api.swagger.json
 
 server: api
 	mkdir -p bin

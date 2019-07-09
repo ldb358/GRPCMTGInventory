@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "mtgcard.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/inventory": {
+      "get": {
+        "operationId": "GetMTGCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiMTGCardResponse"
+            }
+          }
+        },
+        "tags": [
+          "MTGCardService"
+        ]
+      },
+      "post": {
+        "operationId": "AddMTGCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiMTGCardResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apiaddMTGCardParams"
+            }
+          }
+        ],
+        "tags": [
+          "MTGCardService"
+        ]
+      }
+    },
+    "/v1/inventory/{name}": {
+      "delete": {
+        "operationId": "DeleteMTGCard",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apideleteResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "qty",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "MTGCardService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "apiMTGCard": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "apiMTGCardResponse": {
+      "type": "object",
+      "properties": {
+        "cards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiMTGCard"
+          }
+        }
+      }
+    },
+    "apiaddMTGCardParams": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "qty": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "apideleteResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
