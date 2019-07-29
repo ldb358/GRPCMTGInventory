@@ -2,16 +2,44 @@ syntax = "proto3";
 package api;
 import "google/api/annotations.proto";
 
-message getMTGCardParams{}
+message Inventory{
+  string id = 1;
+  string name = 2;
+}
+
+message getInventoryParams{
+  string id = 1;
+  string name = 2;
+}
+
+message addInventoryParams {
+  string name = 1;
+}
+
+message deleteInventoryParams {
+  string id = 1;
+}
+
+message InventoryResponse {
+  string id = 1;
+  string name = 1;
+}
+
+
+message getMTGCardParams{
+  string inventory_id = 1;
+}
 
 message addMTGCardParams{
-  string name = 1;
-  int32 qty = 2;
+  string inventory_id = 1;
+  string name = 2;
+  int32 qty = 3;
 }
 
 message deleteMTGCardParams{
-  string name = 1;
-  int32 qty = 2;
+  string inventory_id = 1;
+  string name = 2;
+  int32 qty = 3;
 }
 
 message MTGCard {
@@ -28,20 +56,38 @@ message deleteResponse {
 }  
 
 service MTGCardService {
-  rpc AddMTGCard(addMTGCardParams) returns (MTGCardResponse) {
+  rpc AddInventory(addInventoryParams) returns (InventoryResponse) {
     option (google.api.http) = {
       post: "/v1/inventory"
       body: "*"
     };
   }
+  rpc GetInventory(getInventoryParams) returns (InventoryResponse) {
+    option (google.api.http) = {
+      post: "/v1/inventory"
+      body: "*"
+    };
+  }
+  rpc DeleteInventory(deleteInventoryParams) returns (InventoryResponse) {
+    option (google.api.http) = {
+      post: "/v1/inventory"
+      body: "*"
+    };
+  }
+  rpc AddMTGCard(addMTGCardParams) returns (MTGCardResponse) {
+    option (google.api.http) = {
+      post: "/v1/inventory/{inventory_id}"
+      body: "*"
+    };
+  }
   rpc DeleteMTGCard(deleteMTGCardParams) returns (deleteResponse) {
     option (google.api.http) = {
-      delete: "/v1/inventory/{name}"
+      delete: "/v1/inventory/{inventory_id}/{name}"
     };
   }
   rpc GetMTGCard(getMTGCardParams) returns (MTGCardResponse) {
     option (google.api.http) = {
-      get: "/v1/inventory"
+      get: "/v1/inventory/{inventory_id}"
     };
   }
 }

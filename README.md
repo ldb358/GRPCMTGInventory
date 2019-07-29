@@ -19,7 +19,7 @@ The next steps(I think):
 1. ~~Finishing setting up grpc~~
 2. ~~Build client~~
 3. ~~Add ssl~~
-4. Add rest
+4. ~~Add rest~~
 5. Build out basic inventory + card data protobuf
 6. Update the api to reflect the full format
 7. Build basic frontend
@@ -45,3 +45,10 @@ to start the server. The client can be run with:
 `./bin/client`
 
 And that is it for now!
+
+
+### Resouces:
+https://mtg.gamepedia.com/Template:List_of_Magic_sets
+https://andrewgioia.github.io/Keyrune/icons.html?icon=lea
+https://www.sohamkamani.com/blog/golang/2019-01-01-jwt-authentication/
+https://github.com/grpc-ecosystem/grpc-gateway
