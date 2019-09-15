@@ -16,6 +16,32 @@
   ],
   "paths": {
     "/v1/inventory": {
+      "post": {
+        "operationId": "DeleteInventory",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/apiInventoryResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apideleteInventoryParams"
+            }
+          }
+        ],
+        "tags": [
+          "MTGCardService"
+        ]
+      }
+    },
+    "/v1/inventory/{inventory_id}": {
       "get": {
         "operationId": "GetMTGCard",
         "responses": {
@@ -26,6 +52,15 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "inventory_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
         "tags": [
           "MTGCardService"
         ]
@@ -42,6 +77,13 @@
         },
         "parameters": [
           {
+            "name": "inventory_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
+          {
             "name": "body",
             "in": "body",
             "required": true,
@@ -55,7 +97,7 @@
         ]
       }
     },
-    "/v1/inventory/{name}": {
+    "/v1/inventory/{inventory_id}/{name}": {
       "delete": {
         "operationId": "DeleteMTGCard",
         "responses": {
@@ -67,6 +109,13 @@
           }
         },
         "parameters": [
+          {
+            "name": "inventory_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "int64"
+          },
           {
             "name": "name",
             "in": "path",
@@ -88,9 +137,25 @@
     }
   },
   "definitions": {
+    "apiInventoryResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
     "apiMTGCard": {
       "type": "object",
       "properties": {
+        "inventory_id": {
+          "type": "string",
+          "format": "int64"
+        },
         "name": {
           "type": "string"
         },
@@ -111,9 +176,21 @@
         }
       }
     },
+    "apiaddInventoryParams": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
     "apiaddMTGCardParams": {
       "type": "object",
       "properties": {
+        "inventory_id": {
+          "type": "string",
+          "format": "int64"
+        },
         "name": {
           "type": "string"
         },
@@ -123,10 +200,29 @@
         }
       }
     },
+    "apideleteInventoryParams": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
     "apideleteResponse": {
       "type": "object",
       "properties": {
         "message": {
+          "type": "string"
+        }
+      }
+    },
+    "apigetInventoryParams": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         }
       }

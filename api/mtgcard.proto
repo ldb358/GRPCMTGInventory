@@ -3,48 +3,49 @@ package api;
 import "google/api/annotations.proto";
 
 message Inventory{
+  int64 id = 1;
+  string name = 2;
+}
+
+message GetInventoryParams{
   string id = 1;
   string name = 2;
 }
 
-message getInventoryParams{
-  string id = 1;
-  string name = 2;
-}
-
-message addInventoryParams {
+message AddInventoryParams {
   string name = 1;
 }
 
-message deleteInventoryParams {
+message DeleteInventoryParams {
   string id = 1;
 }
 
 message InventoryResponse {
-  string id = 1;
-  string name = 1;
+  int64 id = 1;
+  string name = 2;
 }
 
 
-message getMTGCardParams{
-  string inventory_id = 1;
+message GetMTGCardParams{
+  int64 inventory_id = 1;
 }
 
-message addMTGCardParams{
-  string inventory_id = 1;
+message AddMTGCardParams{
+  int64 inventory_id = 1;
   string name = 2;
   int32 qty = 3;
 }
 
-message deleteMTGCardParams{
-  string inventory_id = 1;
+message DeleteMTGCardParams{
+  int64 inventory_id = 1;
   string name = 2;
   int32 qty = 3;
 }
 
 message MTGCard {
-  string name = 1;
-  int32 qty = 2;
+  int64 inventory_id = 1;
+  string name = 2;
+  int32 qty = 3;
 }
 
 message MTGCardResponse {

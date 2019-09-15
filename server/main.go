@@ -11,6 +11,7 @@ import (
   "golang.org/x/net/context"
 
   "github.com/ldb358/GRPCMTGInventory/api"
+  "github.com/ldb358/GRPCMTGInventory/server/handlers"
   "google.golang.org/grpc"
   "google.golang.org/grpc/credentials"
   "google.golang.org/grpc/metadata"
@@ -30,7 +31,7 @@ func credMatcher(headerToken string) (mdName string, ok bool) {
 }
 
 // authenticateAgent check the client credentials
-func authenticateClient(ctx context.Context, s *api.Server) (string, error) {
+func authenticateClient(ctx context.Context, s *handlers.Server) (string, error) {
     if md, ok := metadata.FromIncomingContext(ctx); ok {
         clientToken := strings.Join(md["token"], "")
         if clientToken != "098f6bcd4621d373cade4e832627b4f6" {

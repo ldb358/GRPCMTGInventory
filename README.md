@@ -47,7 +47,7 @@ to start the server. The client can be run with:
 And that is it for now!
 
 
-### Resouces:
+### Resources:
 https://mtg.gamepedia.com/Template:List_of_Magic_sets
 https://andrewgioia.github.io/Keyrune/icons.html?icon=lea
 https://www.sohamkamani.com/blog/golang/2019-01-01-jwt-authentication/

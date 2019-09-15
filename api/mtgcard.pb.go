@@ -25,7 +25,227 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type Inventory struct {
+	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Inventory) Reset()         { *m = Inventory{} }
+func (m *Inventory) String() string { return proto.CompactTextString(m) }
+func (*Inventory) ProtoMessage()    {}
+func (*Inventory) Descriptor() ([]byte, []int) {
+	return fileDescriptor_708406b82c21cf0e, []int{0}
+}
+
+func (m *Inventory) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Inventory.Unmarshal(m, b)
+}
+func (m *Inventory) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Inventory.Marshal(b, m, deterministic)
+}
+func (m *Inventory) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Inventory.Merge(m, src)
+}
+func (m *Inventory) XXX_Size() int {
+	return xxx_messageInfo_Inventory.Size(m)
+}
+func (m *Inventory) XXX_DiscardUnknown() {
+	xxx_messageInfo_Inventory.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Inventory proto.InternalMessageInfo
+
+func (m *Inventory) GetId() int64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *Inventory) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+type GetInventoryParams struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetInventoryParams) Reset()         { *m = GetInventoryParams{} }
+func (m *GetInventoryParams) String() string { return proto.CompactTextString(m) }
+func (*GetInventoryParams) ProtoMessage()    {}
+func (*GetInventoryParams) Descriptor() ([]byte, []int) {
+	return fileDescriptor_708406b82c21cf0e, []int{1}
+}
+
+func (m *GetInventoryParams) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetInventoryParams.Unmarshal(m, b)
+}
+func (m *GetInventoryParams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetInventoryParams.Marshal(b, m, deterministic)
+}
+func (m *GetInventoryParams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetInventoryParams.Merge(m, src)
+}
+func (m *GetInventoryParams) XXX_Size() int {
+	return xxx_messageInfo_GetInventoryParams.Size(m)
+}
+func (m *GetInventoryParams) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetInventoryParams.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetInventoryParams proto.InternalMessageInfo
+
+func (m *GetInventoryParams) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *GetInventoryParams) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+type AddInventoryParams struct {
+	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AddInventoryParams) Reset()         { *m = AddInventoryParams{} }
+func (m *AddInventoryParams) String() string { return proto.CompactTextString(m) }
+func (*AddInventoryParams) ProtoMessage()    {}
+func (*AddInventoryParams) Descriptor() ([]byte, []int) {
+	return fileDescriptor_708406b82c21cf0e, []int{2}
+}
+
+func (m *AddInventoryParams) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddInventoryParams.Unmarshal(m, b)
+}
+func (m *AddInventoryParams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddInventoryParams.Marshal(b, m, deterministic)
+}
+func (m *AddInventoryParams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddInventoryParams.Merge(m, src)
+}
+func (m *AddInventoryParams) XXX_Size() int {
+	return xxx_messageInfo_AddInventoryParams.Size(m)
+}
+func (m *AddInventoryParams) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddInventoryParams.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddInventoryParams proto.InternalMessageInfo
+
+func (m *AddInventoryParams) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+type DeleteInventoryParams struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DeleteInventoryParams) Reset()         { *m = DeleteInventoryParams{} }
+func (m *DeleteInventoryParams) String() string { return proto.CompactTextString(m) }
+func (*DeleteInventoryParams) ProtoMessage()    {}
+func (*DeleteInventoryParams) Descriptor() ([]byte, []int) {
+	return fileDescriptor_708406b82c21cf0e, []int{3}
+}
+
+func (m *DeleteInventoryParams) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DeleteInventoryParams.Unmarshal(m, b)
+}
+func (m *DeleteInventoryParams) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DeleteInventoryParams.Marshal(b, m, deterministic)
+}
+func (m *DeleteInventoryParams) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteInventoryParams.Merge(m, src)
+}
+func (m *DeleteInventoryParams) XXX_Size() int {
+	return xxx_messageInfo_DeleteInventoryParams.Size(m)
+}
+func (m *DeleteInventoryParams) XXX_DiscardUnknown() {
+	xxx_messageInfo_DeleteInventoryParams.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DeleteInventoryParams proto.InternalMessageInfo
+
+func (m *DeleteInventoryParams) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+type InventoryResponse struct {
+	Id                   int64    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *InventoryResponse) Reset()         { *m = InventoryResponse{} }
+func (m *InventoryResponse) String() string { return proto.CompactTextString(m) }
+func (*InventoryResponse) ProtoMessage()    {}
+func (*InventoryResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_708406b82c21cf0e, []int{4}
+}
+
+func (m *InventoryResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_InventoryResponse.Unmarshal(m, b)
+}
+func (m *InventoryResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_InventoryResponse.Marshal(b, m, deterministic)
+}
+func (m *InventoryResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_InventoryResponse.Merge(m, src)
+}
+func (m *InventoryResponse) XXX_Size() int {
+	return xxx_messageInfo_InventoryResponse.Size(m)
+}
+func (m *InventoryResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_InventoryResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_InventoryResponse proto.InternalMessageInfo
+
+func (m *InventoryResponse) GetId() int64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+func (m *InventoryResponse) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
 type GetMTGCardParams struct {
+	InventoryId          int64    `protobuf:"varint,1,opt,name=inventory_id,json=inventoryId,proto3" json:"inventory_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -35,7 +255,7 @@ func (m *GetMTGCardParams) Reset()         { *m = GetMTGCardParams{} }
 func (m *GetMTGCardParams) String() string { return proto.CompactTextString(m) }
 func (*GetMTGCardParams) ProtoMessage()    {}
 func (*GetMTGCardParams) Descriptor() ([]byte, []int) {
-	return fileDescriptor_708406b82c21cf0e, []int{0}
+	return fileDescriptor_708406b82c21cf0e, []int{5}
 }
 
 func (m *GetMTGCardParams) XXX_Unmarshal(b []byte) error {
@@ -56,9 +276,17 @@ func (m *GetMTGCardParams) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_GetMTGCardParams proto.InternalMessageInfo
 
+func (m *GetMTGCardParams) GetInventoryId() int64 {
+	if m != nil {
+		return m.InventoryId
+	}
+	return 0
+}
+
 type AddMTGCardParams struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Qty                  int32    `protobuf:"varint,2,opt,name=qty,proto3" json:"qty,omitempty"`
+	InventoryId          int64    `protobuf:"varint,1,opt,name=inventory_id,json=inventoryId,proto3" json:"inventory_id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Qty                  int32    `protobuf:"varint,3,opt,name=qty,proto3" json:"qty,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -68,7 +296,7 @@ func (m *AddMTGCardParams) Reset()         { *m = AddMTGCardParams{} }
 func (m *AddMTGCardParams) String() string { return proto.CompactTextString(m) }
 func (*AddMTGCardParams) ProtoMessage()    {}
 func (*AddMTGCardParams) Descriptor() ([]byte, []int) {
-	return fileDescriptor_708406b82c21cf0e, []int{1}
+	return fileDescriptor_708406b82c21cf0e, []int{6}
 }
 
 func (m *AddMTGCardParams) XXX_Unmarshal(b []byte) error {
@@ -89,6 +317,13 @@ func (m *AddMTGCardParams) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_AddMTGCardParams proto.InternalMessageInfo
 
+func (m *AddMTGCardParams) GetInventoryId() int64 {
+	if m != nil {
+		return m.InventoryId
+	}
+	return 0
+}
+
 func (m *AddMTGCardParams) GetName() string {
 	if m != nil {
 		return m.Name
@@ -104,8 +339,9 @@ func (m *AddMTGCardParams) GetQty() int32 {
 }
 
 type DeleteMTGCardParams struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Qty                  int32    `protobuf:"varint,2,opt,name=qty,proto3" json:"qty,omitempty"`
+	InventoryId          int64    `protobuf:"varint,1,opt,name=inventory_id,json=inventoryId,proto3" json:"inventory_id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Qty                  int32    `protobuf:"varint,3,opt,name=qty,proto3" json:"qty,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -115,7 +351,7 @@ func (m *DeleteMTGCardParams) Reset()         { *m = DeleteMTGCardParams{} }
 func (m *DeleteMTGCardParams) String() string { return proto.CompactTextString(m) }
 func (*DeleteMTGCardParams) ProtoMessage()    {}
 func (*DeleteMTGCardParams) Descriptor() ([]byte, []int) {
-	return fileDescriptor_708406b82c21cf0e, []int{2}
+	return fileDescriptor_708406b82c21cf0e, []int{7}
 }
 
 func (m *DeleteMTGCardParams) XXX_Unmarshal(b []byte) error {
@@ -136,6 +372,13 @@ func (m *DeleteMTGCardParams) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_DeleteMTGCardParams proto.InternalMessageInfo
 
+func (m *DeleteMTGCardParams) GetInventoryId() int64 {
+	if m != nil {
+		return m.InventoryId
+	}
+	return 0
+}
+
 func (m *DeleteMTGCardParams) GetName() string {
 	if m != nil {
 		return m.Name
@@ -151,8 +394,9 @@ func (m *DeleteMTGCardParams) GetQty() int32 {
 }
 
 type MTGCard struct {
-	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Qty                  int32    `protobuf:"varint,2,opt,name=qty,proto3" json:"qty,omitempty"`
+	InventoryId          int64    `protobuf:"varint,1,opt,name=inventory_id,json=inventoryId,proto3" json:"inventory_id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Qty                  int32    `protobuf:"varint,3,opt,name=qty,proto3" json:"qty,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -162,7 +406,7 @@ func (m *MTGCard) Reset()         { *m = MTGCard{} }
 func (m *MTGCard) String() string { return proto.CompactTextString(m) }
 func (*MTGCard) ProtoMessage()    {}
 func (*MTGCard) Descriptor() ([]byte, []int) {
-	return fileDescriptor_708406b82c21cf0e, []int{3}
+	return fileDescriptor_708406b82c21cf0e, []int{8}
 }
 
 func (m *MTGCard) XXX_Unmarshal(b []byte) error {
@@ -182,6 +426,13 @@ func (m *MTGCard) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_MTGCard proto.InternalMessageInfo
+
+func (m *MTGCard) GetInventoryId() int64 {
+	if m != nil {
+		return m.InventoryId
+	}
+	return 0
+}
 
 func (m *MTGCard) GetName() string {
 	if m != nil {
@@ -208,7 +459,7 @@ func (m *MTGCardResponse) Reset()         { *m = MTGCardResponse{} }
 func (m *MTGCardResponse) String() string { return proto.CompactTextString(m) }
 func (*MTGCardResponse) ProtoMessage()    {}
 func (*MTGCardResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_708406b82c21cf0e, []int{4}
+	return fileDescriptor_708406b82c21cf0e, []int{9}
 }
 
 func (m *MTGCardResponse) XXX_Unmarshal(b []byte) error {
@@ -247,7 +498,7 @@ func (m *DeleteResponse) Reset()         { *m = DeleteResponse{} }
 func (m *DeleteResponse) String() string { return proto.CompactTextString(m) }
 func (*DeleteResponse) ProtoMessage()    {}
 func (*DeleteResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_708406b82c21cf0e, []int{5}
+	return fileDescriptor_708406b82c21cf0e, []int{10}
 }
 
 func (m *DeleteResponse) XXX_Unmarshal(b []byte) error {
@@ -276,6 +527,11 @@ func (m *DeleteResponse) GetMessage() string {
 }
 
 func init() {
+	proto.RegisterType((*Inventory)(nil), "api.Inventory")
+	proto.RegisterType((*GetInventoryParams)(nil), "api.getInventoryParams")
+	proto.RegisterType((*AddInventoryParams)(nil), "api.addInventoryParams")
+	proto.RegisterType((*DeleteInventoryParams)(nil), "api.deleteInventoryParams")
+	proto.RegisterType((*InventoryResponse)(nil), "api.InventoryResponse")
 	proto.RegisterType((*GetMTGCardParams)(nil), "api.getMTGCardParams")
 	proto.RegisterType((*AddMTGCardParams)(nil), "api.addMTGCardParams")
 	proto.RegisterType((*DeleteMTGCardParams)(nil), "api.deleteMTGCardParams")
@@ -287,28 +543,37 @@ func init() {
 func init() { proto.RegisterFile("mtgcard.proto", fileDescriptor_708406b82c21cf0e) }
 
 var fileDescriptor_708406b82c21cf0e = []byte{
-	// 326 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x52, 0xcd, 0x4a, 0xc3, 0x40,
-	0x10, 0x26, 0xad, 0xb5, 0x38, 0xda, 0x1f, 0xa6, 0xad, 0x84, 0xd2, 0x43, 0xd9, 0x53, 0xe9, 0xa1,
-	0xc1, 0x8a, 0x20, 0x7a, 0x12, 0x85, 0x9e, 0x84, 0xd2, 0x7a, 0xf4, 0x32, 0x36, 0x43, 0x08, 0x34,
-	0xbb, 0x31, 0xbb, 0x14, 0x8a, 0x78, 0xf1, 0x15, 0xc4, 0x27, 0xf3, 0x15, 0x7c, 0x10, 0xe9, 0x36,
-	0x09, 0x4d, 0x51, 0x10, 0x6f, 0xb3, 0x3b, 0xf3, 0xfd, 0xec, 0x37, 0x0b, 0xb5, 0xc8, 0x04, 0x0b,
-	0x4a, 0xfc, 0x51, 0x9c, 0x28, 0xa3, 0xb0, 0x4c, 0x71, 0xd8, 0xed, 0x05, 0x4a, 0x05, 0x4b, 0xf6,
-	0x28, 0x0e, 0x3d, 0x92, 0x52, 0x19, 0x32, 0xa1, 0x92, 0x7a, 0x3b, 0x22, 0x10, 0x9a, 0x01, 0x9b,
-	0xfb, 0x87, 0xc9, 0x2d, 0x25, 0xfe, 0x94, 0x12, 0x8a, 0xb4, 0xb8, 0x84, 0x26, 0xf9, 0x7e, 0xe1,
-	0x0e, 0x11, 0x0e, 0x24, 0x45, 0xec, 0x3a, 0x7d, 0x67, 0x70, 0x34, 0xb3, 0x35, 0x36, 0xa1, 0xfc,
-	0x6c, 0xd6, 0x6e, 0xa9, 0xef, 0x0c, 0x2a, 0xb3, 0x4d, 0x29, 0xae, 0xa1, 0xe5, 0xf3, 0x92, 0x0d,
-	0xff, 0x07, 0xec, 0x41, 0x35, 0x85, 0xfd, 0x11, 0x70, 0x01, 0x8d, 0x14, 0x30, 0x63, 0x1d, 0x2b,
-	0xa9, 0x19, 0x05, 0x54, 0x36, 0xef, 0xd7, 0xae, 0xd3, 0x2f, 0x0f, 0x8e, 0xc7, 0x27, 0x23, 0x8a,
-	0xc3, 0x51, 0x36, 0xb4, 0x6d, 0x89, 0x21, 0xd4, 0xb7, 0x26, 0x73, 0x94, 0x0b, 0xd5, 0x88, 0xb5,
-	0xa6, 0x20, 0x53, 0xcc, 0x8e, 0xe3, 0x8f, 0x12, 0xd4, 0x53, 0xf8, 0x9c, 0x93, 0x55, 0xb8, 0x60,
-	0x9c, 0x03, 0xdc, 0xe4, 0xe9, 0x60, 0xc7, 0x2a, 0xec, 0xc7, 0xd5, 0x6d, 0x17, 0x84, 0x53, 0x1d,
-	0xe1, 0xbe, 0x7d, 0x7e, 0xbd, 0x97, 0x50, 0xd4, 0xbc, 0xd5, 0x99, 0x17, 0xca, 0x15, 0x4b, 0xa3,
-	0x92, 0xf5, 0x95, 0x33, 0xc4, 0x47, 0xa8, 0xdd, 0xed, 0x06, 0x87, 0xae, 0x25, 0xf8, 0x21, 0xcc,
-	0x6e, 0x6b, 0xa7, 0x93, 0x33, 0xf7, 0x2c, 0xf3, 0xe9, 0xb0, 0x5d, 0x60, 0xf6, 0x5e, 0x36, 0xc9,
-	0xbd, 0xe2, 0x14, 0x60, 0x92, 0x2f, 0x39, 0xb5, 0xbc, 0xbf, 0xf5, 0x5f, 0x2c, 0x77, 0x2c, 0x71,
-	0x03, 0x8b, 0x96, 0x9f, 0x0e, 0xed, 0xef, 0x39, 0xff, 0x0e, 0x00, 0x00, 0xff, 0xff, 0xfa, 0x95,
-	0x8b, 0x46, 0x71, 0x02, 0x00, 0x00,
+	// 468 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x94, 0x4f, 0x6b, 0xd4, 0x40,
+	0x18, 0xc6, 0x49, 0xd2, 0x5a, 0xf6, 0xed, 0xee, 0x76, 0x9d, 0x5a, 0x0d, 0xa1, 0x48, 0x3a, 0x2a,
+	0x0d, 0x2b, 0x6c, 0xb0, 0x52, 0x14, 0x6f, 0xc5, 0xc2, 0xd2, 0x83, 0x20, 0xd1, 0x8b, 0x08, 0x2e,
+	0xd3, 0xce, 0x10, 0x06, 0x9b, 0x4c, 0x4c, 0x86, 0x85, 0x52, 0xf6, 0xe2, 0x57, 0xf0, 0xa3, 0x79,
+	0xf2, 0xee, 0x07, 0x91, 0x4c, 0x92, 0x61, 0xb2, 0xff, 0xd4, 0x45, 0x6f, 0xb3, 0x3b, 0xef, 0xf3,
+	0x3c, 0x79, 0x26, 0xbf, 0x09, 0xf4, 0x12, 0x19, 0x5f, 0x91, 0x9c, 0x8e, 0xb2, 0x5c, 0x48, 0x81,
+	0x1c, 0x92, 0x71, 0xef, 0x30, 0x16, 0x22, 0xbe, 0x66, 0x21, 0xc9, 0x78, 0x48, 0xd2, 0x54, 0x48,
+	0x22, 0xb9, 0x48, 0x8b, 0x6a, 0x04, 0x87, 0xd0, 0xb9, 0x48, 0xa7, 0x2c, 0x95, 0x22, 0xbf, 0x41,
+	0x7d, 0xb0, 0x39, 0x75, 0x2d, 0xdf, 0x0a, 0x9c, 0xc8, 0xe6, 0x14, 0x21, 0xd8, 0x4a, 0x49, 0xc2,
+	0x5c, 0xdb, 0xb7, 0x82, 0x4e, 0xa4, 0xd6, 0xf8, 0x25, 0xa0, 0x98, 0x49, 0xad, 0x79, 0x4b, 0x72,
+	0x92, 0x14, 0x86, 0xb2, 0xb3, 0x52, 0x19, 0x00, 0x22, 0x94, 0xce, 0x2b, 0x9b, 0x49, 0xcb, 0x98,
+	0x3c, 0x86, 0x03, 0xca, 0xae, 0x99, 0x64, 0xbf, 0x89, 0xc1, 0x2f, 0xe0, 0xae, 0x1e, 0x89, 0x58,
+	0x91, 0x89, 0xb4, 0x60, 0x7f, 0xd4, 0xe2, 0x14, 0x06, 0x31, 0x93, 0x6f, 0xde, 0x8f, 0x5f, 0x93,
+	0x9c, 0xd6, 0xe6, 0x47, 0xd0, 0xe5, 0x8d, 0xd9, 0x44, 0x3b, 0xec, 0xea, 0xff, 0x2e, 0x28, 0xfe,
+	0x08, 0x03, 0x42, 0xe9, 0xdf, 0xca, 0x96, 0x3d, 0x01, 0x1a, 0x80, 0xf3, 0x45, 0xde, 0xb8, 0x8e,
+	0x6f, 0x05, 0xdb, 0x51, 0xb9, 0xc4, 0x9f, 0x60, 0xbf, 0x6a, 0xfd, 0x9f, 0xfc, 0x23, 0xd8, 0xa9,
+	0x9d, 0xff, 0x9d, 0xe7, 0x29, 0xec, 0xd5, 0x9e, 0xfa, 0xf8, 0x31, 0x6c, 0x97, 0x08, 0x16, 0xae,
+	0xe5, 0x3b, 0xc1, 0xee, 0x49, 0x77, 0x44, 0x32, 0x3e, 0x6a, 0x86, 0xaa, 0x2d, 0x3c, 0x84, 0x7e,
+	0x55, 0x55, 0xab, 0x5c, 0xd8, 0x49, 0x58, 0x51, 0x90, 0xb8, 0x21, 0xa1, 0xf9, 0x79, 0xf2, 0x63,
+	0x0b, 0xfa, 0xb5, 0xfc, 0x1d, 0xcb, 0xa7, 0xfc, 0x8a, 0xa1, 0x0f, 0xd0, 0x3d, 0x33, 0x48, 0x42,
+	0x0f, 0x54, 0xc6, 0x22, 0x5c, 0xde, 0x7d, 0xb5, 0xb1, 0x80, 0x08, 0x76, 0xbf, 0x7e, 0xff, 0xf9,
+	0xcd, 0x46, 0xb8, 0x17, 0x4e, 0x9f, 0x85, 0xba, 0xf5, 0x2b, 0x6b, 0x58, 0x5a, 0x8f, 0x0d, 0xbc,
+	0x6b, 0xeb, 0x45, 0xe2, 0x37, 0xb0, 0x9e, 0xc0, 0xde, 0x79, 0x9b, 0x6a, 0xe4, 0x29, 0x93, 0xa5,
+	0xac, 0x6f, 0x10, 0x70, 0x09, 0x70, 0xa6, 0xe9, 0x44, 0x07, 0xcd, 0xa1, 0xb4, 0x70, 0xf2, 0xee,
+	0xb5, 0xde, 0x47, 0x63, 0x7a, 0xac, 0x4c, 0x8f, 0xf0, 0x61, 0xcb, 0x34, 0xbc, 0x35, 0x29, 0x99,
+	0x95, 0x19, 0x9f, 0xa1, 0x77, 0x6e, 0x42, 0x8a, 0x5c, 0xa3, 0x42, 0x3b, 0x69, 0xdf, 0xd8, 0xd1,
+	0x41, 0x4f, 0x55, 0xd0, 0x93, 0xe1, 0xa3, 0x75, 0x41, 0xe1, 0x6d, 0x89, 0xdb, 0x0c, 0x4d, 0x00,
+	0xc6, 0xfa, 0x96, 0xd6, 0x85, 0xe6, 0xaf, 0xed, 0x8a, 0x42, 0x8f, 0x55, 0xce, 0x43, 0xb4, 0xb6,
+	0xd0, 0xe5, 0x1d, 0xf5, 0x11, 0x7c, 0xfe, 0x2b, 0x00, 0x00, 0xff, 0xff, 0x23, 0xfc, 0x5e, 0xeb,
+	0x38, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -323,6 +588,9 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MTGCardServiceClient interface {
+	AddInventory(ctx context.Context, in *AddInventoryParams, opts ...grpc.CallOption) (*InventoryResponse, error)
+	GetInventory(ctx context.Context, in *GetInventoryParams, opts ...grpc.CallOption) (*InventoryResponse, error)
+	DeleteInventory(ctx context.Context, in *DeleteInventoryParams, opts ...grpc.CallOption) (*InventoryResponse, error)
 	AddMTGCard(ctx context.Context, in *AddMTGCardParams, opts ...grpc.CallOption) (*MTGCardResponse, error)
 	DeleteMTGCard(ctx context.Context, in *DeleteMTGCardParams, opts ...grpc.CallOption) (*DeleteResponse, error)
 	GetMTGCard(ctx context.Context, in *GetMTGCardParams, opts ...grpc.CallOption) (*MTGCardResponse, error)
@@ -334,6 +602,33 @@ type mTGCardServiceClient struct {
 
 func NewMTGCardServiceClient(cc *grpc.ClientConn) MTGCardServiceClient {
 	return &mTGCardServiceClient{cc}
+}
+
+func (c *mTGCardServiceClient) AddInventory(ctx context.Context, in *AddInventoryParams, opts ...grpc.CallOption) (*InventoryResponse, error) {
+	out := new(InventoryResponse)
+	err := c.cc.Invoke(ctx, "/api.MTGCardService/AddInventory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mTGCardServiceClient) GetInventory(ctx context.Context, in *GetInventoryParams, opts ...grpc.CallOption) (*InventoryResponse, error) {
+	out := new(InventoryResponse)
+	err := c.cc.Invoke(ctx, "/api.MTGCardService/GetInventory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *mTGCardServiceClient) DeleteInventory(ctx context.Context, in *DeleteInventoryParams, opts ...grpc.CallOption) (*InventoryResponse, error) {
+	out := new(InventoryResponse)
+	err := c.cc.Invoke(ctx, "/api.MTGCardService/DeleteInventory", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *mTGCardServiceClient) AddMTGCard(ctx context.Context, in *AddMTGCardParams, opts ...grpc.CallOption) (*MTGCardResponse, error) {
@@ -365,6 +660,9 @@ func (c *mTGCardServiceClient) GetMTGCard(ctx context.Context, in *GetMTGCardPar
 
 // MTGCardServiceServer is the server API for MTGCardService service.
 type MTGCardServiceServer interface {
+	AddInventory(context.Context, *AddInventoryParams) (*InventoryResponse, error)
+	GetInventory(context.Context, *GetInventoryParams) (*InventoryResponse, error)
+	DeleteInventory(context.Context, *DeleteInventoryParams) (*InventoryResponse, error)
 	AddMTGCard(context.Context, *AddMTGCardParams) (*MTGCardResponse, error)
 	DeleteMTGCard(context.Context, *DeleteMTGCardParams) (*DeleteResponse, error)
 	GetMTGCard(context.Context, *GetMTGCardParams) (*MTGCardResponse, error)
@@ -374,6 +672,15 @@ type MTGCardServiceServer interface {
 type UnimplementedMTGCardServiceServer struct {
 }
 
+func (*UnimplementedMTGCardServiceServer) AddInventory(ctx context.Context, req *AddInventoryParams) (*InventoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddInventory not implemented")
+}
+func (*UnimplementedMTGCardServiceServer) GetInventory(ctx context.Context, req *GetInventoryParams) (*InventoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetInventory not implemented")
+}
+func (*UnimplementedMTGCardServiceServer) DeleteInventory(ctx context.Context, req *DeleteInventoryParams) (*InventoryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteInventory not implemented")
+}
 func (*UnimplementedMTGCardServiceServer) AddMTGCard(ctx context.Context, req *AddMTGCardParams) (*MTGCardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddMTGCard not implemented")
 }
@@ -386,6 +693,60 @@ func (*UnimplementedMTGCardServiceServer) GetMTGCard(ctx context.Context, req *G
 
 func RegisterMTGCardServiceServer(s *grpc.Server, srv MTGCardServiceServer) {
 	s.RegisterService(&_MTGCardService_serviceDesc, srv)
+}
+
+func _MTGCardService_AddInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddInventoryParams)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MTGCardServiceServer).AddInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.MTGCardService/AddInventory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MTGCardServiceServer).AddInventory(ctx, req.(*AddInventoryParams))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MTGCardService_GetInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetInventoryParams)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MTGCardServiceServer).GetInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.MTGCardService/GetInventory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MTGCardServiceServer).GetInventory(ctx, req.(*GetInventoryParams))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MTGCardService_DeleteInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteInventoryParams)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MTGCardServiceServer).DeleteInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/api.MTGCardService/DeleteInventory",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MTGCardServiceServer).DeleteInventory(ctx, req.(*DeleteInventoryParams))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _MTGCardService_AddMTGCard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -446,6 +807,18 @@ var _MTGCardService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "api.MTGCardService",
 	HandlerType: (*MTGCardServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddInventory",
+			Handler:    _MTGCardService_AddInventory_Handler,
+		},
+		{
+			MethodName: "GetInventory",
+			Handler:    _MTGCardService_GetInventory_Handler,
+		},
+		{
+			MethodName: "DeleteInventory",
+			Handler:    _MTGCardService_DeleteInventory_Handler,
+		},
 		{
 			MethodName: "AddMTGCard",
 			Handler:    _MTGCardService_AddMTGCard_Handler,
